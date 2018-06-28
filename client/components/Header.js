@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router';
 import query from '../queries/CurrentUser';
 
 
@@ -11,7 +12,14 @@ class Header extends Component {
             return <div>Logout</div>;
         } else {
             return (
-                <div>You're not signed in</div>
+                <div>
+                    <li>
+                        <Link to="/signup">Sign Up</Link>
+                    </li>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
+                </div>
             )
         }
     }
@@ -19,7 +27,12 @@ class Header extends Component {
         return(
             <nav>
                 <div className="nav-wrapper">
-                    {this.renderButtons()}
+                    <Link to="/" className="brand-logo left">
+                        Home
+                    </Link>
+                    <ul className="right">
+                        {this.renderButtons()}
+                    </ul>
                 </div>
             </nav>
         )
