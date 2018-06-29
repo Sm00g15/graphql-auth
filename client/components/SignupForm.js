@@ -24,7 +24,7 @@ class SignupForm extends Component {
         return(
             <div>
                 <h3>Sign Up</h3>
-                <AuthForm errors={[]} onSubmit={this.onSubmit.bind(this)} />
+                <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)} />
             </div>
         );  
     }
