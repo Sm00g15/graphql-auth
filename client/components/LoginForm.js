@@ -9,6 +9,10 @@ class LoginForm extends Component {
         super(props);
         this.state = {errors: []}
     }
+    componentWillUpdate(nextProps) {
+        console.log(this.props) // old, curent set of props
+        console.log(nextProps) // next set of props when component rerenders
+    }
     onSubmit({ email, password }) {
         this.props.mutate({
             variables: { email, password },
@@ -29,4 +33,6 @@ class LoginForm extends Component {
     }
 }
 
-export default graphql(mutation)(LoginForm);
+export default graphql(query)(
+    (mutation)(LoginForm)
+);
